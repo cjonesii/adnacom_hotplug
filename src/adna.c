@@ -46,6 +46,7 @@
 #include "setpci.h"
 #include "ls-caps.h"
 #include "ls-ecaps.h"
+#include "ls-map.h"
 
 #define PLX_VENDOR_ID       (0x10B5)
 #define PLX_H1A_DEVICE_ID   (0x8608)

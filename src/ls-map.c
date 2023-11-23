@@ -11,6 +11,7 @@
 #include <stdlib.h>
 
 #include "adna.h"
+#include "ls-map.h"
 
 struct bus_bridge
 {
@@ -27,8 +28,7 @@ struct bus_info
 
 static struct bus_info *bus_info;
 
-static void
-map_bridge(struct bus_info *bi, struct device *d, int np, int ns, int nl)
+static void map_bridge(struct bus_info *bi, struct device *d, int np, int ns, int nl)
 {
   struct bus_bridge *b = xmalloc(sizeof(struct bus_bridge));
   struct pci_dev *p = d->dev;
@@ -51,8 +51,7 @@ map_bridge(struct bus_info *bi, struct device *d, int np, int ns, int nl)
   }
 }
 
-static void
-do_map_bus(int bus)
+static void do_map_bus(int bus)
 {
   int dev, func;
   int verbose = pacc->debugging;
@@ -100,8 +99,7 @@ do_map_bus(int bus)
     }
 }
 
-static void
-do_map_bridges(int bus, int min, int max)
+static void do_map_bridges(int bus, int min, int max)
 {
   struct bus_info *bi = bus_info + bus;
   struct bus_bridge *b;
@@ -121,8 +119,7 @@ do_map_bridges(int bus, int min, int max)
   }
 }
 
-static void
-map_bridges(void)
+static void map_bridges(void)
 {
   int i;
 

@@ -160,9 +160,6 @@ extern struct bridge host_bridge;
 void grow_tree(void);
 void show_forest(struct pci_filter *filter);
 
-/* ls-map.c */
-
-void map_the_bus(void);
 void adna_set_d3_flag(int devnum);
 
 int adna_pci_process(void);
