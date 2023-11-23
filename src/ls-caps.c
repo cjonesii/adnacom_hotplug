@@ -11,6 +11,7 @@
 
 #include "adna.h"
 #include "ls-caps.h"
+#include "ls-ecaps.h"
 
 static void cap_pm(struct device *d, int where, int cap)
 {

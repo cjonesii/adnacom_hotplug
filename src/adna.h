@@ -143,10 +143,6 @@ struct adna_options {
 
 void cap_vpd(struct device *d);
 
-/* ls-ecaps.c */
-
-void show_ext_caps(struct device *d, int type);
-
 /* ls-caps-vendor.c */
 
 void show_vendor_caps(struct device *d, int where, int cap);
