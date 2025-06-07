@@ -1075,6 +1075,7 @@ static int save_to_adna_list(void)
       if (d->parent_bus->parent_bridge->br_dev != NULL) {
         parent = d->parent_bus->parent_bridge->br_dev;
         p = xmalloc(sizeof(struct pci_filter));
+        memset(p, 0, sizeof(*p));
         snprintf(bdf_str, sizeof(bdf_str), "%04x:%02x:%02x.%d",
                parent->dev->domain, parent->dev->bus, parent->dev->dev, parent->dev->func);
         snprintf(mfg_str, sizeof(mfg_str), "%04x:%04x:%04x",
