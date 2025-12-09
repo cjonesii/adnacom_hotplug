@@ -114,6 +114,9 @@ clean:
 
 distclean: clean
 
+installer: all
+	./create-installer.sh
+
 install: all
 # Use default if SYSTEMD_DIR is empty
 ifeq ($(SYSTEMD_DIR),"")
@@ -170,4 +173,4 @@ ifeq ($(SHARED),yes)
 	rm -f $(DESTDIR)$(LIBDIR)/$(PCILIB) $(DESTDIR)$(LIBDIR)/$(LIBNAME).so$(ABI_VERSION)
 endif
 
-.PHONY: all clean distclean install install-lib uninstall force tags TAGS
+.PHONY: all clean distclean install install-lib uninstall force tags TAGS installer

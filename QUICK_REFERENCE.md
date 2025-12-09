@@ -1,5 +1,26 @@
 # Quick Reference - Adnacom Hotplug Tool
 
+## Installation
+
+### Self-Extracting Installer (Recommended)
+```bash
+# On build system
+make
+make installer
+
+# Copy adnacom-hotplug-installer.sh to target system, then:
+sudo ./adnacom-hotplug-installer.sh
+```
+
+### Manual Installation
+```bash
+make clean && make
+sudo make install
+sudo systemctl daemon-reload
+sudo systemctl enable adnacom-hotplug
+sudo systemctl start adnacom-hotplug
+```
+
 ## Basic Commands
 
 ```bash
