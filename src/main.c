@@ -25,7 +25,8 @@ int main(int argc, char **argv)
   new_timer.it_interval.tv_usec = 100 * 1000;
 
   if (argc == 2 && !strcmp(argv[1], "--version")) {
-    puts("Adnacom version " ADNATOOL_VERSION);
+    puts("Adnacom Hotplug Tool version " ADNATOOL_VERSION);
+    puts("Supports: H1A (PEX8608), H18/H3/H12 (PEX8718)");
     return 0;
   } else if ((argc == 2 && !strcmp(argv[1], "-v"))) {
     AdnaOptions.bVerbose = true;

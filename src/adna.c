@@ -1,7 +1,9 @@
 /** @file: adna.c
  *
- * Adnacom PCIe Hotplug tool
+ * Adnacom PCIe Hotplug Tool
  * Copyright (C) 2022-2023, Adnacom Inc
+ *
+ * Supports Adnacom H1A, H18, H12, and H3 PCIe host adapters
  *
  * Based on the PCI Library
  * Copyright (c) 1998--2020 Martin Mares <mj@ucw.cz>
@@ -77,7 +79,7 @@ static int opt_domains;   /* Show domain numbers (0=disabled, 1=auto-detected, 2
 static int opt_kernel;    /* Show kernel drivers */
 char *opt_pcimap;         /* Override path to Linux modules.pcimap */
 static int NumDevices = 0;
-const char program_name[] = "adna";
+const char program_name[] = "adnacom-hp";
 char g_h1a_us_port_bar0[256] = "\0";
 uint8_t *g_pBuffer = NULL;
 struct adna_options AdnaOptions;
@@ -97,6 +99,7 @@ struct adnatool_pci_device {
         u32 cls_rev;
 } adnatool_pci_devtbl[] = {
         { .vid = PLX_VENDOR_ID,     .did = PLX_H1A_DEVICE_ID, .cls_rev = PCI_CLASS_BRIDGE_PCI, },
+        { .vid = PLX_VENDOR_ID,     .did = PLX_H18_DEVICE_ID, .cls_rev = PCI_CLASS_BRIDGE_PCI, },
         { .vid = TI_VENDOR_ID,      .did = TI_DEVICE_ID,      .cls_rev = PCI_CLASS_SERIAL_USB, },
         {0}, /* sentinel */
 };

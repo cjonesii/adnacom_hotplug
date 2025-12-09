@@ -1,10 +1,16 @@
 Information
 ~~~~~~~~~~~
 
-This is the Adnacom PCIe Hotplug tool. It monitors the link status of the 
-H1A downstream ports and does appropriate actions to rescan or re-enumerate
-the bus where the Adnacom device is installed whenever any of the downstream
-link status change.
+This is the Adnacom PCIe Hotplug Tool. It monitors the link status of 
+Adnacom downstream ports and performs appropriate actions to rescan or 
+re-enumerate the bus where the Adnacom device is installed whenever any 
+downstream link status changes.
+
+Supported Devices:
+- H1A  (PLX PEX8608)
+- H18  (PLX PEX8718)
+- H12  (PLX PEX8718)
+- H3   (PLX PEX8718)
 
 Copyright (C) 2022, 2023 Adnacom Inc.
 

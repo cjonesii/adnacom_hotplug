@@ -1,7 +1,9 @@
 /** @file: adna.h
  *
- * Adnacom PCIe Hotplug tool
+ * Adnacom PCIe Hotplug Tool
  * Copyright (C) 2022-2023, Adnacom Inc
+ *
+ * Supports Adnacom H1A, H18, H12, and H3 PCIe host adapters
  *
  * Based on the PCI Library
  * Copyright (c) 1998--2020 Martin Mares <mj@ucw.cz>

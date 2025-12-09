@@ -1,4 +1,4 @@
-# Makefile for H1A Hotplug Utility
+# Makefile for Adnacom Hotplug Utility
 # (c) 2022--2023 Adnacom, Inc.
 # Based on
 # Makefile for The PCI Utilities
@@ -45,12 +45,12 @@ LIBDIR=$(PREFIX)/lib
 PKGCFDIR=$(LIBDIR)/pkgconfig
 
 # Systemd file and directory
-SERVICE_FILE=h1a_hp.service
-SERVICE_NAME=h1a_hp
+SERVICE_FILE=adnacom-hotplug.service
+SERVICE_NAME=adnacom-hotplug
 SYSTEMD_DIR=`pkg-config systemd --variable=systemdsystemunitdir`
 
 # 
-TARGET_EXEC := h1a_hp
+TARGET_EXEC := adnacom-hp
 BUILD_DIR := ./build
 SRC_DIRS := ./src
 SRCS := $(shell find $(SRC_DIRS) -name '*.cpp' -or -name '*.c')

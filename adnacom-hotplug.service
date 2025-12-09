@@ -1,0 +1,9 @@
+[Unit]
+Description=Adnacom PCIe Hotplug Utility
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/adnacom-hp
+
+[Install]
+WantedBy=multi-user.target
