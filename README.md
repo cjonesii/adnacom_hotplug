@@ -1,9 +1,9 @@
 Information
 ~~~~~~~~~~~
 
-This is the Adnacom PCIe Hotplug Tool. It monitors the link status of 
-Adnacom downstream ports and performs appropriate actions to rescan or 
-re-enumerate the bus where the Adnacom device is installed whenever any 
+This is the Adnacom PCIe Hotplug Tool. It monitors the link status of
+Adnacom downstream ports and performs appropriate actions to rescan or
+re-enumerate the bus where the Adnacom device is installed whenever any
 downstream link status changes.
 
 Supported Devices:

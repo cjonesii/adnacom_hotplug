@@ -44,6 +44,44 @@ sudo journalctl -u adnacom-hotplug --since today
 | Service File | `/etc/systemd/system/adnacom-hotplug.service` |
 | Source Code | `/home/cj/adnacom_hotplug/` |
 
+## Kernel Requirements
+
+**Required Kernel Parameters:**
+
+The hotplug tool requires specific kernel parameters to function properly. Add these to your GRUB configuration:
+
+```bash
+pci=hpmmioprefsize=2MB,realloc,earlydump pcie_port_pm=off pcie_aspm=off
+```
+
+### Check Current Kernel Parameters
+```bash
+cat /proc/cmdline | grep -i pci
+```
+
+### Configure Kernel Parameters (if not set)
+
+1. Edit GRUB configuration:
+   ```bash
+   sudo nano /etc/default/grub
+   ```
+
+2. Add to `GRUB_CMDLINE_LINUX_DEFAULT`:
+   ```
+   pci=hpmmioprefsize=2MB,realloc,earlydump pcie_port_pm=off pcie_aspm=off
+   ```
+
+3. Update GRUB and reboot:
+   ```bash
+   sudo update-grub
+   sudo reboot
+   ```
+
+**Parameter Explanation:**
+- `pci=hpmmioprefsize=2MB,realloc` - Allocates 2MB prefetchable memory for hotplug and enables resource reallocation
+- `pcie_port_pm=off` - Disables PCIe port power management
+- `pcie_aspm=off` - Disables Active State Power Management
+
 ## Troubleshooting
 
 ```bash
@@ -56,29 +94,11 @@ ps aux | grep adnacom-hp
 # Check system messages
 dmesg | grep -i pci | tail -20
 
+# Verify kernel parameters are set
+cat /proc/cmdline
+
 # Test without installing
 sudo ./adnacom-hp
-```
-
-## Migration from h1a_hp
-
-```bash
-# 1. Stop old service
-sudo systemctl stop h1a_hp
-sudo systemctl disable h1a_hp
-
-# 2. Build and install new version
-cd /home/cj/adnacom_hotplug
-make clean && make
-sudo make install
-
-# 3. Start new service
-sudo systemctl daemon-reload
-sudo systemctl enable adnacom-hotplug
-sudo systemctl start adnacom-hotplug
-
-# 4. Verify
-sudo systemctl status adnacom-hotplug
 ```
 
 ## Quick Build Test
